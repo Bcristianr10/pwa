@@ -4,9 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:href": "ng build --base-href ./",
+    "delete:docs": "del docs",
+    "copy:dist": "copyfiles dist/angular-pwa-demo/browser/* ./docs -f",
+    "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist"
   },
   "private": true,
   "dependencies": {
